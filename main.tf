@@ -1,14 +1,14 @@
 
 provider "aws" {
-region = "ap-south-1"
+region = "ap-south-1a"
 }
 
 resource "aws_instance" "one" {
-  ami             = "ami-0cbbe2c6a1bb2ad63"
-  instance_type   = "t2.micro"
+  ami             = "ami-0144277607031eca2"
+  instance_type   = "t3.micro"
   key_name        = "AGS"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1a"
+  availability_zone = "ap-south-1a"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -23,11 +23,11 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = "ami-0cbbe2c6a1bb2ad63"
-  instance_type   = "t2.micro"
+  ami             = "ami-0144277607031eca2"
+  instance_type   = "t3.micro"
   key_name        = "AGS"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "us-east-1b"
+  availability_zone = "ap-south-1a"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -42,8 +42,8 @@ EOF
 }
 
 resource "aws_instance" "three" {
-  ami             = "ami-0cbbe2c6a1bb2ad63"
-  instance_type   = "t2.micro"
+  ami             = "ami-0144277607031eca2"
+  instance_type   = "t3.micro"
   key_name        = "AGS"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1a"
@@ -53,8 +53,8 @@ resource "aws_instance" "three" {
 }
 
 resource "aws_instance" "four" {
-  ami             = "ami-0cbbe2c6a1bb2ad63"
-  instance_type   = "t2.micro"
+  ami             = "ami-0144277607031eca2"
+  instance_type   = "t3.micro"
   key_name        = "AGS"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "us-east-1b"
@@ -99,7 +99,7 @@ default = ["milky", "tillu", "hari", "Dharani"]
 }
 
 resource "aws_ebs_volume" "eight" {
- availability_zone = "us-east-1a"
+ availability_zone = "ap-south-1a"
   size = 40
   tags = {
     Name = "ebs-001"
